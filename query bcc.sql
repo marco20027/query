@@ -294,3 +294,38 @@ where cod_soggetto in ('15426','112236','112237','112238','112239','112240','112
 --mettere NDG --> cod_alfa_stan
 SELECT * FROM GDET_CTBSTDSO
 WHERE COD_TIPO_STAN='988'
+
+
+insert prel_profgrpu (comporre insert cod utent creato)
+insert prel_facodeli 
+INSERT INTO GAGT_RELUSNDG (COD_USERID,COD_SOGGETTO,COD_ENTE_CENS,TMS_CENS,FLG_PRIN,COD_PROF_COND,COD_PROF_FIDI,COD_PROF_AUTO,COD_SOCRIFERIMENTO,TMS_VARZ,COD_ENTE_MODI,COD_TRX,COD_PROF_ANAG,COD_PROF_PEF,FLG_VISU_DIPN,COD_PROF_CONZ,COD_ORDI_PROF_AUTO,COD_CRUS_DEFL)
+ VALUES ('VITALI',112202,'QMF',{ts '2015-10-02 10:52:19.916109'},'S','CD0  ','FD1  ','AUTC ','15',{ts '2015-10-02 10:52:19.916109'},'QMF     ','QMF  ','     ','     ','N','     ',1,null);
+
+INSERT INTO "CCFP01"."ISIT_UTENTI" ("COD_UTEN","DES_UTEN","COD_GRUP_UTEN","DES_PSW","DAT_INIZ_PSW","DAT_SCAD_PSW","DAT_MODI_PSW","NUM_TENT_EFFR","COD_CENT_COST","THH_INIZ_COLL","THH_FINE_COLL","TIM_STAT","COD_UTENMODI","DES_NOTE","COD_GRUT_COND","COD_GRUT_FIDI","COD_TIPO_INSE","FLG_CONNESSO","COD_PROF_COND","COD_PROF_FIDI","COD_PROF_AUTO","FLG_VISU_TMNL_FLUA","COD_USER_SSO","FLG_ATVZ_SSO","FLG_ESCL_SSO_LEV2","COD_LNGE_USER","DES_PSW_WEB","TMS_INIZ_PSW_WEB","TMS_SCAD_PSW_WEB","TMS_MODI_PSW_WEB","DES_USER_AGEN_STRI","COD_EMUL_TYPE","FLG_USER_ADMN","DES_MAIL","COD_USER_SSO_EXT") VALUES ('CELEST              ','Donatella Celestini','K4FG','',null,null,null,0,'99        ',null,null,{ts '2018-04-24 12:03:01.858020'},'SECUADMIN','','          ','          ','  ','N','CD0  ','FD1  ','AUTI ','N','CELESTIN            ','N',' ','      ','CFyF96+7TvsrWGjc+PtnZARpPp0=',{ts '2018-05-07 09:22:24.357857'},{ts '2024-03-15 16:59:03.571950'},{ts '2024-02-14 16:59:03.571950'},'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0','NOEMUL    ','N','','');
+
+maildocprod da girare a studio informatica assistenza@smouse.it
+
+GesCR da girare ad Aronica collega di vigilanza
+
+--BCC Factoring S.p.A. - Cessione CEDENTE DA WOF CCFP01 ; ERRORE
+SELECT * FROM EVEN_EVTQUEUE
+WHERE DATE(TMS_CENS) >= '2024-02-28'
+AND COD_STATO = 'FAILED'
+ 
+SELECT * FROM EVEN_PKGREMOT
+WHERE ID_PACKAGE = 11814
+
+--Inseriti cambi in AOF BCC UBAE
+ --andare su banca d'italia e vedere il valore valuta
+
+INSERT INTO fopt_cambio VALUES ('001','XXX',{d '2024-02-29'},1.0826,'HD',current_timestamp,'CAMB','HD',current_timestamp,'242');
+INSERT INTO fopt_cambio VALUES ('002','XXX',{d '2024-02-29'},0.85655,'HD',current_timestamp,'CAMB','HD',current_timestamp,'242');
+
+ 
+(questo solo per BCC) INSERT INTO fopt_cambio VALUES ('003','XXX',{d '2024-02-29'},0.9534,'HD',current_timestamp,'CAMB','HD',current_timestamp,'242');
+
+
+--2024/110
+SELECT * FROM FFGT_LINEMODI
+WHERE NUM_PR_LIN_CREDITO = 109971
+--seccata ultima riga 

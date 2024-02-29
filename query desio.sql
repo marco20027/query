@@ -157,3 +157,5 @@ WHERE COD_FLUS LIKE '%16867%'
 --2024/36
 --fopt_fatexml e fopt_partita controllare fatture se no mettere 000 su cod_invi
 
+--se K4F servizio non attivo
+SELECT * FROM k4f_servizio --> mettere flag a S

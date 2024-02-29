@@ -104,3 +104,7 @@ AND COD_NDG_DEBI = 1000681
 -- ffgt_valparls (valori) ticket 2024/40 fucino
 
 
+--ticker 2024/65
+SELECT a.cod_sogg_codi, a.cod_estr, b.des_sogg_uten  FROM gagt_codieste a , gagt_ndg b
+where a.cod_sogg_codi = b.cod_soggetto
+and cod_tipo_codi=100
