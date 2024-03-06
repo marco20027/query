@@ -159,3 +159,44 @@ WHERE COD_FLUS LIKE '%16867%'
 
 --se K4F servizio non attivo
 SELECT * FROM k4f_servizio --> mettere flag a S
+
+
+-- linea revocata
+--vedere se gli output sono a 0 e la linea non aperta
+SELECT * FROM FOPT_PARTITA
+WHERE NUM_PR_LIN_CREDITO = 3194
+AND DAT_CHIU_DEBI_FCTG IS NULL
+AND COD_SOCRIFERIMENTO = '27'
+ 
+SELECT * FROM FFGT_CONTO --imp sald da vedere se è 0
+WHERE NUM_PR_LIN_CREDITO = 3194
+AND COD_SOCRIFERIMENTO = '27'
+ 
+SELECT SUM(IMP_MOVI_FINZ) FROM FOPT_MOVICONT --8783,89
+WHERE NUM_PR_LIN_CREDITO = 3194
+AND DAT_DISP_CEDE IS NOT NULL
+AND COD_SOCRIFERIMENTO = '27'
+ 
+SELECT SUM(IMP_MOVI_FINZ) FROM FOPT_MONTECRE
+WHERE NUM_PR_LIN_CREDITO = 3194 -- -1085,75
+AND COD_SOCRIFERIMENTO  = '27'
+ 
+SELECT COD_CAUS, SUM(IMP_MCRE) FROM FOPT_MONTECRE
+WHERE NUM_PR_LIN_CREDITO = 3194
+GROUP BY COD_CAUS
+
+SELECT A.COD_RAND_PRTT                                              
+       FROM FOPT_PARTITA  A                                    
+           ,GDET_CTLTIPAR B                                    
+      WHERE A.COD_SOCRIFERIMENTO = '27'
+        AND A.NUM_PR_LIN_CREDITO = 3194
+        AND A.COD_RAND_COPP_GEST = 57802056    
+        AND (A.DAT_CHIU_DEBI_FCTG IS NULL                      
+         OR  A.DAT_CHIU_EMIT      IS NULL)                      
+         AND B.COD_TIPO_PRTT      = A.COD_TIPO_PRTT            
+         AND B.COD_LING_USER      ='086'   
+         AND B.COD_NATU_PRTT      = 'C'        
+
+
+SELECT * FROM FOPT_SALDCOPP
+where num_pr_lin_credito=3194
