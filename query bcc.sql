@@ -329,3 +329,6 @@ INSERT INTO fopt_cambio VALUES ('002','XXX',{d '2024-02-29'},0.85655,'HD',curren
 SELECT * FROM FFGT_LINEMODI
 WHERE NUM_PR_LIN_CREDITO = 109971
 --seccata ultima riga 
+
+
+select * from fart_antiricl
