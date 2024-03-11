@@ -80,8 +80,41 @@ WHERE COD_SOGGETTO IN (25492,102718,111589)
 --sblocco conto NAQ
 SELECT * FROM FFGT_LICREPAR
 WHERE NUM_PR_LIN_CREDITO = 74854  --(linea di credito)
-and cod_param_lin_sist in ( '280','180' 
+and cod_param_lin_sist in ( '280','180')
 
 sintesi si vanno a mettere a N questi parametri 
 SI sospende ticket e quando hanno finito li rimettiamo a s
  E POI SI CHIUDE QUANDO ARRIVA MAIL DI RIPRISTINO 
+
+
+--richiesta scollegamento server
+SELECT * FROM GDET_CTBSERWS  --scollegare
+WHERE COD_SERVIZIO IN ('CEDACFIDI                ','CEDACREP                 ')
+ 
+--- PER SCOLLEGARE
+ 
+UPDATE GDET_CTBSERWS
+SET FLG_ATTIVO = 'N'
+--SELECT * FROM GDET_CTBSERWS
+WHERE FLG_ATTIVO = 'S'
+AND COD_SERVIZIO IN ('CEDACFIDI                ','CEDACREP                 ')
+ 
+ 
+ 
+/*Ciao, server scollegato.
+Attendiamo riscontro per ricollegare.
+Erika
+ 
+QUANDO ARRIVA MAIL CHIUDERE IL TICKET CON LA SEGUENTE NOTA:
+Ciao, server collegato.
+Erika*/
+ 
+ 
+ 
+-- PER COLLEGARE
+ 
+UPDATE GDET_CTBSERWS
+SET FLG_ATTIVO = 'S'
+--SELECT * FROM GDET_CTBSERWS
+WHERE FLG_ATTIVO = 'N'
+AND COD_SERVIZIO IN ('CEDACFIDI                ','CEDACREP                 ')
