@@ -103,11 +103,11 @@ AND COD_SERVIZIO IN ('CEDACFIDI','CEDACREP')
  
 /*Ciao, server scollegato.
 Attendiamo riscontro per ricollegare.
-Erika
+Marco
  
 QUANDO ARRIVA MAIL CHIUDERE IL TICKET CON LA SEGUENTE NOTA:
 Ciao, server collegato.
-Erika*/
+Marco*/
  
  
  
