@@ -89,7 +89,7 @@ SI sospende ticket e quando hanno finito li rimettiamo a s
 
 --richiesta scollegamento server
 SELECT * FROM GDET_CTBSERWS  --scollegare
-WHERE COD_SERVIZIO IN ('CEDACFIDI                ','CEDACREP                 ')
+WHERE COD_SERVIZIO IN ('CEDACFIDI','CEDACREP')
  
 --- PER SCOLLEGARE
  
@@ -97,7 +97,7 @@ UPDATE GDET_CTBSERWS
 SET FLG_ATTIVO = 'N'
 --SELECT * FROM GDET_CTBSERWS
 WHERE FLG_ATTIVO = 'S'
-AND COD_SERVIZIO IN ('CEDACFIDI                ','CEDACREP                 ')
+AND COD_SERVIZIO IN ('CEDACFIDI','CEDACREP')
  
  
  
@@ -117,4 +117,9 @@ UPDATE GDET_CTBSERWS
 SET FLG_ATTIVO = 'S'
 --SELECT * FROM GDET_CTBSERWS
 WHERE FLG_ATTIVO = 'N'
-AND COD_SERVIZIO IN ('CEDACFIDI                ','CEDACREP                 ')
+AND COD_SERVIZIO IN ('CEDACFIDI','CEDACREP')
+
+--TK CRMPPZ19
+--CREDEM PROD - CRMPPZ19 - Flusso situazione dei default Factor
+--APRIRE TASSISTO02
+
