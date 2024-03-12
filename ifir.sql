@@ -476,10 +476,6 @@ SELECT * FROM fopt_movicont
 WHERE COD_CAUS = 'C30D'
 
 
-ffgt_pratdig
-
-prel_pratdigi
-
 --pef in collaudo TEST SPPI
 SET CURRENT SQLID ='FPFC01'
 
