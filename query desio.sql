@@ -197,6 +197,9 @@ SELECT A.COD_RAND_PRTT
          AND B.COD_LING_USER      ='086'   
          AND B.COD_NATU_PRTT      = 'C'        
 
+select cod_flus from fopt_partita a, gdet_ctblsist where a.cod_socriferimento ='27' and a.num_pr_lin_Credito = 3194 
+and (A.DAT_CHIU_DEBI_FCTG IS NULL OR A.DAT_CHIU_EMIT IS NULL) 
+AND B.COD_TIPO_PRTT = A.COD_TIPO_PRTT AND B.COD_LING_USER ='086' AND B.COD_NATU_PRTT ='C'
 
 SELECT * FROM FOPT_SALDCOPP
 where num_pr_lin_credito=3194
