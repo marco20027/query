@@ -110,6 +110,10 @@ WHERE COD_FLUS='WCW0000017263240308'
 SELECT * FROM FTPT_RAGGRUCB
 WHERE COD_FLUS ='WCW0000016870240212' --> trova linea di credito collegata a il cod_flus
 
+UPDATE FTPT_RAGGRUCB
+SET COD_STAT='001'
+WHERE COD_FLUS=  'WCW0000017355240313'--> cancellazione cessione
+
 
 FOPT_RIGAPART
 2024/17 -- semplice update sullo stato mettere in 2 quando è 3
