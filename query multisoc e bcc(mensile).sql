@@ -103,3 +103,17 @@ ORDER BY TMS_CENS DESC
 
 --2024/27
 --via denominazione , indirizzo della banca, poi fare insert con i dati messi nella mail del ticket abi e car uniti sul cod_spor
+
+
+SET CURRENT SQLID = 'FPFP01'
+ --2024/40 recupero dati
+delete from tcon_filekey    where num_id in (1867120);
+delete from tcon_relidx     where num_id in (1867120);
+delete from tcon_bdcidx     where num_id in (1867120);
+delete from tcon_hdcidx     where num_id in (1867120);
+delete from tcon_bdcmpx     where num_id in (1867120);
+delete from tcon_dlvqupar   where num_dlv in (select num_dlv from tcon_dlvqueue where num_id in (1867120));
+delete from tcon_dlvqueue   where num_id in (1867120);
+delete from tcon_dlvpostel  where num_id in (1867120);/
+update scpr_logproc set flg_stat='0'  where num_id in (1867120);
+select * from scpr_logproc  where num_id in (1867120);
