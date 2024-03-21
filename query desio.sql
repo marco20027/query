@@ -157,6 +157,12 @@ and  ( cod_stat_oper not in ( 'RAINV', 'RAPFB', 'COINV')
 SELECT * FROM FTPT_RAGGRUCB --METTERE IN STATO 001
 WHERE COD_FLUS LIKE '%16867%'
 
+--tabella notifica cessione 
+SELECT * FROM FTPT_NOTIFICA
+where num_pr_lin_credito = 900
+and cod_ragg ='17441'
+
+
 
 --2024/36
 --fopt_fatexml e fopt_partita controllare fatture se no mettere 000 su cod_invi
