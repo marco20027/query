@@ -118,6 +118,17 @@ SELECT * FROM FDBT_DBINUMSC  --tabella per trovaro descrizone tasso ER08
 WHERE NUM_PR_LIN_CREDITO = 1700
 
 
+--2024/80 RESET PASSWORD ILLIMITY
+-- FILTRARE PER QUESTE TABELLE PER VEDERE SE è ANDATO IN FALIED
+SELECT * FROM EVEN_EVTQUEUE
+where tms_cens like '%2024-03-26%'
+--and cod_type
+and id_event ='894508'
+order by tms_cens desc
+
+SELECT * FROM EVEN_EVTPARAM
+where id_event ='894508'
+
 
 
 
