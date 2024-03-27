@@ -66,3 +66,11 @@ indirizzo
 codice nazione 
 data
 */
+
+
+--Questa ti portrebbe servire per resettare le pass:
+ 
+UPDATE ISIT_UTENTI
+SET DAT_SCAD_PSW =NULL, TMS_INIZ_PSW_WEB = NULL, TMS_SCAD_PSW_WEB = NULL, 
+TMS_MODI_PSW_WEB = NULL, DES_PSW_WEB = 'Lc7LR4YIoVU+rweHtc17/CsyvW0=' --$Password0
+WHERE COD_UTEN = 'USRHD' ;
