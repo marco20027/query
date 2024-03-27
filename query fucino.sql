@@ -155,7 +155,7 @@ WHERE NUM_PR_LIN_CREDITO = 10384
 GROUP BY COD_CAUS
 
 
---per sqlcode error 803 fare questi prog
+--per sqlcode error 803 fare questi prog  Errore lavorazione pef 
 SELECT * FROM FFGT_PROFDCP
 WHERE COD_RAND_COPP=37903988
 SELECT * FROM FFGT_PROFCPA
