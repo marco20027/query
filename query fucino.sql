@@ -176,5 +176,6 @@ VALUES ('24','0674','EI0308    ','   ','N',' ','N','  ','I','   ','   ','   ','E
 SELECT * FROM GDET_PEF3FACO
 --where cod_userid ='203153'
 
+
 SELECT * FROM GDET_PEF3STUT
 --where cod_uten ='203153'
