@@ -385,3 +385,10 @@ WHERE COD_SOGGETTO ='64106'
 INSERT INTO FFGT_PROLCPAR (COD_SOCRIFERIMENTO,NUM_PR_LIN_CREDITO,COD_PARAM_LIN_SIST,PRG_VALO,COD_VALO_PARA,IMP_VALO_PARA,PRC_VALO_PARA,DAT_VALO_PARA,NUM_VALO_PARA,COD_ENTE_MODI,COD_ENTE_CENS,DAT_CENS,TIM_STAT,COD_TRSZ)
  VALUES ('15',55989,'328',1,null,null,null,null,null,'HD    ','HD    ',20231108,{ts '2024-03-06 16:53:26.132542'},'HD  ');
 va inserito il parametro che hanno indicato (328) su PROLCPAR
+
+
+SELECT concat(concat(SUBSTR(cast(dat_cont as char(10)),1,4),' - '),SUBSTR(cast(dat_cont as char(10)),6,2)) as DATA_AGG,
+concat(concat(SUBSTR(cast(dat_cont as char(10)),1,4),' - '),SUBSTR(cast(dat_cont as char(10)),6,2)) as ANNOMESE_CONT,
+dat_cont as DAT_CONT
+FROM igfp01.TCON_DATCONT
+WHERE FLAG_TIPO_ELAB ='M' 
