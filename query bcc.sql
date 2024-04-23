@@ -26,6 +26,12 @@ SELECT a.cod_stato,a.cod_soggetto, b.des_ragi_socl, b.cod_piva,b.cod_fisc FROM g
 WHERE a.cod_soggetto = b.cod_soggetto 
 AND a.cod_stato >='002'  -- estrazione stato soggetto ragione sociale Piva cf per bcc e poi esportazione in excel
 
+
+SELECT DISTINCT(a.cod_soggetto),b.des_ragi_socl,a.cod_stato,C.DES_STAT_SOGG, b.cod_piva,b.cod_fisc FROM gagt_ndgutent a, gagt_soggperg b, GDET_CTLSTSOG c 
+WHERE a.cod_soggetto = b.cod_soggetto 
+and c.cod_stat_sogg = a.COD_STATO
+AND C.COD_LING_USER ='086' -- estrazione con aggiunta descrizione stato anagrafica
+
 -- per simulazione mensile utiliazzare K4F_SERVIZIO se N (spento) s(normale) ctrl+h (sostituisce valore)
 
 --per le commissioni tralasciare p70
