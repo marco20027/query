@@ -398,3 +398,12 @@ concat(concat(SUBSTR(cast(dat_cont as char(10)),1,4),' - '),SUBSTR(cast(dat_cont
 dat_cont as DAT_CONT
 FROM igfp01.TCON_DATCONT
 WHERE FLAG_TIPO_ELAB ='M' 
+
+--2024/34 estrazione partite e tipo partite per cedente e debitore
+select  a.COD_NDG_DEBI_FCTG, b.ANA_SOGGETTORID,  a.cod_ndg_Cede, c.ANA_SOGGETTORID, a.cod_prtt, a.COD_TIPO_PRTT,d.DES_TIPO_PRTT, A.DAT_REGI, a.DAT_EMIS, a.DAT_SCAD_EMIT,a.imp_facc
+from FOPT_PARTITA a, gagt_ndgutent b, gagt_ndgutent c, GDET_CTBTIPAR d
+where   b.cod_soggetto = a.COD_NDG_DEBI_FCTG
+and   c.cod_soggetto = a.cod_ndg_Cede
+and a.COD_TIPO_PRTT = d.COD_TIPO_PRTT
+and dat_REGI BETWEEN '2024-04-01' AND '2024-04-30'
+order by a.dat_emis desc
