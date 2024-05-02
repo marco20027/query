@@ -105,11 +105,11 @@ SELECT * FROM gdet_ctblsist --TABELLA DELLE LINEE DI SISTEMA
 --2024/35 IFIR utilizzare query sottostante 
 UPDATE FTPT_PARTITCB
 SET FLG_SPLIT_PAYM = 'N'
-WHERE COD_FLUS=' WCW000001413424042' 
+WHERE COD_FLUS=' WXW0000002032240430' 
 and IMP_IVA ='0'
 --AND COD_RAND_RAGG ='6537' --consolidare la cessione(QUERY PER RISOLVERE IL TICKET 2024/13, FTPT_PARTITCB,FTPT_RAGGRUCB) va anche azzerato importo iva
 SELECT * FROM FTPT_RAGGRUCB
-WHERE COD_FLUS ='WCW000001413424042' --> trova linea di credito collegata a il cod_flus
+WHERE COD_FLUS ='WCW0000014206240430' --> trova linea di credito collegata a il cod_flus
 
 UPDATE FTPT_RAGGRUCB
 SET COD_STAT='001'
@@ -225,3 +225,11 @@ AND (COD_TIPO_RAGG='WCW' AND COD_RAGG=17210)
 --cessioni da WOF
 SELECT * FROM EVEN_EVTQUEUE
 WHERE DATE(TMS_CENS) = CURRENT DATE
+
+--2024/85 -- contabili storno bonifico in 1 
+SELECT * FROM WRDC_HEADER -- dati di testata 
+where COD_STATO not in ('2','I')
+ 
+SELECT * FROM WRDC_DETAIL -- dati di contenuto 
+WHERE ID_FLUSSO in ('a56e24d5-0a7c-48f9-8917-095060626438')
+and COD_STATO not in ('2','0')
