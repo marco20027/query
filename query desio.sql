@@ -233,3 +233,8 @@ where COD_STATO not in ('2','I')
 SELECT * FROM WRDC_DETAIL -- dati di contenuto 
 WHERE ID_FLUSSO in ('a56e24d5-0a7c-48f9-8917-095060626438')
 and COD_STATO not in ('2','0')
+
+--2024/87
+post office 
+yes messo questo flusso in stato I sulla WRDC_HEADER
+ca7d9bfd-8692-4b2e-ae27-4f6046af9a93
