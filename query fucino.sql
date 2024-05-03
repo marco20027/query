@@ -182,3 +182,4 @@ SELECT * FROM GDET_PEF3STUT
 
 --cambio debitore tk 2024/139
 per modificare il debitore di una fattura, occorre procedere dalla transazione KR07, valorizzando opportunamente i filtri e inserendo come tipo operazione "Debitore e Indirizzo", successivamente nel Dettaglio all'interno dei DAti di Coppia sarà possibile inserire il nuovo debitore.
+
