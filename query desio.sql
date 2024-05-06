@@ -236,5 +236,5 @@ and COD_STATO not in ('2','0')
 
 --2024/87
 post office 
-yes messo questo flusso in stato I sulla WRDC_HEADER
+yes messo questo flusso in stato I sulla WRDC_HEADER e sulla wrdc_detail mettere il cod_stato a 0 quando in 3, mettere cod_stato_dlvry a 0 quando in 3
 ca7d9bfd-8692-4b2e-ae27-4f6046af9a93
