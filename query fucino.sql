@@ -183,6 +183,23 @@ SELECT * FROM GDET_PEF3STUT
  SELECT * FROM FTPT_ERRGC30 --errori cessione 
 WHERE COD_FLUS  = 'WCW0000002848240506'
 
+ --script di rigenerazione
+ delete from tcon_filekey    where num_id in (67768);
+delete from tcon_relidx     where num_id in (67768);
+delete from tcon_bdcidx     where num_id in (67768);
+delete from tcon_hdcidx     where num_id in (67768);
+delete from tcon_bdcmpx     where num_id in (67768);
+delete from tcon_dlvqupar   where num_dlv in (select num_dlv from tcon_dlvqueue where num_id in (67768));
+delete from tcon_dlvqueue   where num_id in (67768);
+delete from tcon_dlvpostel  where num_id in (67768);
+update scpr_logproc set flg_stat='0'  where num_id in (67768);
+ 
+select * from scpr_logproc  where num_id in (67768);
+-----
+
+
 --cambio debitore tk 2024/139
 per modificare il debitore di una fattura, occorre procedere dalla transazione KR07, valorizzando opportunamente i filtri e inserendo come tipo operazione "Debitore e Indirizzo", successivamente nel Dettaglio all'interno dei DAti di Coppia sarà possibile inserire il nuovo debitore."
 
+
+ 
