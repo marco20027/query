@@ -14,6 +14,13 @@ WHERE COD_STAT_MOVI = 'S'
 
 select * from TCON_DLVQUEUE --tabella del tconverto vedo tutti i file inviati controllare record in stato tre 
 order by tms_cens desc 
+
+
+--2024/16
+ 
+SELECT * FROM FTPT_CEWSFIDI
+ORDER BY ID_WS_FIDI DESC
+--comunicare a ics il motivo dell'errore poi loro verificano con cedacri quando ci dicono di reinviare mettiamo RAREI
  
 
  0249 (cod fiscale) -- > da togliere su cerverd aosta
