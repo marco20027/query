@@ -27,6 +27,8 @@ WHERE a.cod_soggetto = b.cod_soggetto
 AND a.cod_stato >='002'  -- estrazione stato soggetto ragione sociale Piva cf per bcc e poi esportazione in excel
 
 
+  
+
 SELECT DISTINCT(a.cod_soggetto),b.des_ragi_socl,a.cod_stato,C.DES_STAT_SOGG, b.cod_piva,b.cod_fisc FROM gagt_ndgutent a, gagt_soggperg b, GDET_CTLSTSOG c 
 WHERE a.cod_soggetto = b.cod_soggetto 
 and c.cod_stat_sogg = a.COD_STATO
@@ -422,3 +424,20 @@ WHERE A.COD_STAT_LIN_PLAF NOT IN ('004','010')
 AND A.COD_NDG_DEBI = B.COD_SOGGETTO
 AND EXISTS (SELECT NUM_PR_LIN_CREDITO FROM FOPT_MOVICONT
 WHERE DAT_CONT >= '2023-05-01')
+
+--estrazione debitori attualmente attivi collegati al cedente e al gestore di riferimento 
+SELECT  C.COD_NDG_DEBI, D.ANA_SOGGETTORID,C.COD_STAT_LIN_PLAF,B.COD_SOGGETTO, A.COD_SOGGETTO, E.ANA_SOGGETTORID ,a.COD_STATO_LIN_PLAF , B1.COD_SOGGETTO  
+FROM FFGT_LINEACRE A, GAGT_RELASOGG B, GAGT_RELASOGG B1, ffgt_fidocopp c,GAGT_NDGUTENT D, GAGT_NDGUTENT E
+WHERE A.NUM_PR_LIN_CREDITO = C.NUM_PR_LIN_CREDITO
+AND C.COD_NDG_DEBI = D.COD_SOGGETTO
+AND C.COD_NDG_DEBI = B.COD_SOGG_RELA
+AND A.COD_SOGGETTO = B1.COD_SOGG_RELA
+AND A.COD_SOGGETTO = E.COD_SOGGETTO
+AND B.COD_TIPO_RELA = 'SGE' 
+AND B1.COD_TIPO_RELA = 'SGE'
+AND A.COD_STATO_LIN_PLAF NOT IN ('004','010')
+AND C.COD_STAT_LIN_PLAF NOT IN ('004','010')
+AND B.DAT_FINE IS NULL
+AND B1.DAT_FINE IS NULL
+
+
