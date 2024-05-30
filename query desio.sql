@@ -263,3 +263,46 @@ WHERE COD_RAND_PRTT IN (167483100,648294100,545226100,980496100,452897100,334488
 183642100,684663100,96493100,792605100,620027100,208577100,579358100,847979100,382800200,425621200,69962200,
 403633200,697734200,346395200,600476200,1587200,538598200)
 AND COD_SOCRIFERIMENTO ='27'
+
+--2024/106
+--archiviazione linea di credito
+--controllare che tutti i saldi siano a zero 
+--apri pz02 vedi se c'è tutto a zero 
+--sul db controlla la somma di imp_sald_cont di partita
+--somma di movicont
+--somma di montecre
+--saldi su ffgt_conto
+--vedi se su partita ci sono fatture con data_chiu_Debi a null
+
+SELECT SUM(IMP_SALD_CONT) FROM fopt_partita
+
+SELECT SUM(IMP_MOVI_FINZ) FROM FOPT_MOVICONT
+where NUM_PR_LIN_CREDITO = 1369
+and dat_disp_cede is not null
+
+SELECT * FROM FOPT_MOVICONT
+WHERE NUM_PR_LIN_CREDITO = 1369
+AND IMP_MOVI_FINZ LIKE '%%'
+and dat_disp_cede is not null 
+
+SELECT * FROM FFGT_CONTO
+WHERE COD_SOGGETTO ='18767'
+
+SELECT * FROM FOPT_PARTITA 
+WHERE NUM_PR_LIN_CREDITO ='1369'
+AND DAT_CHIU_DEBI_FCTG IS NULL
+
+SELECT A.COD_RAND_PRTT                                              
+       FROM FOPT_PARTITA  A                                    
+           ,GDET_CTLTIPAR B                                    
+      WHERE A.COD_SOCRIFERIMENTO = '27'
+        AND A.NUM_PR_LIN_CREDITO = 1369
+        AND A.COD_RAND_COPP_GEST is not null
+        AND (A.DAT_CHIU_DEBI_FCTG IS NULL                      
+         OR  A.DAT_CHIU_EMIT      IS NULL)                      
+         AND B.COD_TIPO_PRTT      = A.COD_TIPO_PRTT            
+         AND B.COD_LING_USER      ='086'   
+         AND B.COD_NATU_PRTT      = 'C'
+
+INSERT INTO "FOPT_MOVICONT" ("COD_SOCRIFERIMENTO","NUM_PR_LIN_OPERA","COD_RAND_MOVI","NUM_PR_LIN_CREDITO","COD_CAUS","IMP_MOVI_FINZ","COD_DIVS_FINZ","IMP_COGE","DAT_CONT","DAT_VALU_CEDE","DAT_DISP_CEDE","DES_DOCU_RIFE","COD_USERID","TMS_CENS","COD_TRX","TMS_OPER","DES_DOCU_RIFE_XXXL","FLG_STOR","PRG_STOR")
+VALUES ('24',1370,998998998,1369,'C30D',0.6,'242',0.6,null,null,{d '2018-11-02'},null,'QCC     ',{ts '2018-11-02 17:42:47.317199'},'QCC ',{ts '2018-11-02 17:42:47.317199'},null,'N',0);
