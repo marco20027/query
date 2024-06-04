@@ -202,7 +202,13 @@ select * from scpr_logproc  where num_id in ('209654');
 
 
 --cambio debitore tk 2024/139
-per modificare il debitore di una fattura, occorre procedere dalla transazione KR07, valorizzando opportunamente i filtri e inserendo come tipo operazione "Debitore e Indirizzo", successivamente nel Dettaglio all'interno dei DAti di Coppia sarà possibile inserire il nuovo debitore."
+--per modificare il debitore di una fattura, occorre procedere dalla transazione KR07, valorizzando opportunamente i filtri e inserendo come tipo operazione "Debitore e Indirizzo", successivamente nel Dettaglio all'interno dei DAti di Coppia sarà possibile inserire il nuovo debitore."
 
 
  
+SELECT * FROM EVEN_EVTPARAM -- movimenti wof
+WHERE ID_EVENT IN( 23729,23794,23793,23792,23791,23790,23789,23788,23787,23786,23785,23784,23783,23782,23781,23780,23779,23778,
+23777,23776,23775,23774,23773,23772,23771,23770,23769,23768,23767,23766,23765,23764,23763,23762,23761,
+23760,23759,23758,23757,23756,23755,23754,23753,23752,23751,23750,23749,23748,23747,23746,23745,23744,
+23743,23742,23741,23740,23739,23738,23737,23736,23735,23734,23733,23732,23731,23730,23729)
+AND COD_PARAM_NAME = 'TESTO' 
