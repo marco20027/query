@@ -462,6 +462,14 @@ AND A.COD_STATO_LIN_PLAF IN ('008', '010')
 AND A.DAT_REVO BETWEEN '2023-01-01' AND '2023-12-31'
 AND NOT EXISTS (SELECT * FROM FFGT_LINEACRE C
   			   WHERE C.COD_SOGGETTO = A.COD_SOGGETTO
+
+  --Per lanciare un job in collaudo:
+ 
+prima questo CCGCGIOR
+poi questo CCGCSP01
+poi questo CCGCSP02
+ 
+poi il job che devi lanciare CCTCMT01
   			   AND C.COD_STATO_LIN_PLAF NOT IN ('008', '010')
   			   )
 
