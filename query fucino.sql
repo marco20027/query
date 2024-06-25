@@ -218,3 +218,6 @@ UPDATE FOPT_GEDOCCRE
 SET COD_STAT_DOCU ='001'
 where  COD_NDG_cede = 1000988
 and COD_STAT_DOCU = '002'
+
+-- firme  2024/206 FUCINO -  Firma digitale ARUBA PEC - onboarding
+--scrivere a Marco.Colatruglio@finwave.it di disattivare , chiudere tk e appena il cliente da riscontro di attivarle scrivere a colatruglio di attivare.
