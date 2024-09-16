@@ -221,3 +221,13 @@ and COD_STAT_DOCU = '002'
 
 -- firme  2024/206 FUCINO -  Firma digitale ARUBA PEC - onboarding
 --scrivere a Marco.Colatruglio@finwave.it di disattivare , chiudere tk e appena il cliente da riscontro di attivarle scrivere a colatruglio di attivare.
+
+
+--2024/279 Anomalia lettere di Notifica nota di credito
+SELECT A.NUM_PR_LIN_CREDITO,A.COD_SOGGETTO,B.ANA_SOGGETTORID,A.COD_STATO_LIN_PLAF, C.COD_PARAM_LIN_SIST, C.COD_VALO_PARA
+FROM FFGT_LINEACRE A, GAGT_NDGUTENT B , FFGT_LICREPAR C
+WHERE A.COD_SOGGETTO = B.COD_SOGGETTO
+AND A.NUM_PR_LIN_CREDITO = C.NUM_PR_LIN_CREDITO
+AND C.COD_PARAM_LIN_SIST ='155'
+AND C.COD_VALO_PARA ='S'
+AND A.COD_STATO_LIN_PLAF NOT IN ('004','010','001')
